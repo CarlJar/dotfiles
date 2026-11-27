@@ -1,0 +1,18 @@
+# Debian / Raspberry Pi OS — installed with apt
+# Not listed here (handled by install.sh): neovim (apt version too old -> official release),
+# lazygit, gping, yazi (apt if available, else GitHub release)
+git
+curl
+unzip
+file
+stow
+fzf
+ripgrep
+fd-find
+bat
+tmux
+htop
+tree
+nethogs
+nodejs
+npm

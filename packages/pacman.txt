@@ -1,0 +1,20 @@
+# Arch / Manjaro — installed with pacman
+git
+curl
+unzip
+file
+stow
+neovim
+fzf
+ripgrep
+fd
+bat
+tmux
+htop
+tree
+nethogs
+nodejs
+npm
+lazygit
+gping
+yazi
