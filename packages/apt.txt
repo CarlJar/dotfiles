@@ -16,3 +16,6 @@ tree
 nethogs
 nodejs
 npm
+jq
+zoxide
+chafa

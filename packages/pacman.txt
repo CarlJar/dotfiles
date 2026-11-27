@@ -18,3 +18,7 @@ npm
 lazygit
 gping
 yazi
+jq
+zoxide
+resvg
+chafa
