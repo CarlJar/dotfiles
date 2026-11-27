@@ -1,5 +1,4 @@
-# Laptop (ThinkPad) — RENAME this file to your laptop's hostname: run `uname -n` there
-# e.g.  git mv shell/.config/shell/host/LAPTOP.sh shell/.config/shell/host/<hostname>.sh
+# carl-thinkpad (laptop, Manjaro)
 
 # --- Masterarbeit ---
 alias master='cd ~/projects/SHiP-Masterthesis'

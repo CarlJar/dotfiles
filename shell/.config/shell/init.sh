@@ -13,12 +13,15 @@ export PATH
 export EDITOR=nvim
 export VISUAL=nvim
 
+# zsh: allow "# comments" in the interactive shell (bash does this by default)
+[ -n "$ZSH_VERSION" ] && setopt interactive_comments
+
 # 1. common aliases (every machine)
 [ -f "$_shell_dir/aliases.sh" ] && . "$_shell_dir/aliases.sh"
 
 # 2. OS-specific (debian.sh, arch.sh) — picked from /etc/os-release
-_os_ids=$( (. /etc/os-release 2>/dev/null && echo "$ID $ID_LIKE") )
-for _id in $_os_ids; do
+# (looping over $(...) directly: zsh does not word-split plain variables)
+for _id in $( (. /etc/os-release 2>/dev/null && echo "$ID $ID_LIKE") ); do
   if [ -f "$_shell_dir/os/$_id.sh" ]; then
     . "$_shell_dir/os/$_id.sh"
     break
@@ -32,4 +35,4 @@ _host=$(uname -n)
 # 4. private, untracked additions for this machine only (never committed)
 [ -f "$_shell_dir/local.sh" ] && . "$_shell_dir/local.sh"
 
-unset _shell_dir _os_ids _id _host
+unset _shell_dir _id _host
