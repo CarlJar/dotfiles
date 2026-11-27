@@ -29,5 +29,25 @@ alias lg='lazygit'
 alias rg='rg --smart-case'
 alias gp='gping'
 alias nh='sudo nethogs'
-alias y='yazi'
 alias ports='sudo ss -tulpn'
+
+# --- yazi quick tool ---
+
+y() {
+    local tmp cwd
+    tmp="$(mktemp -t yazi-cwd.XXXXXX)"
+    yazi "$@" --cwd-file="$tmp"
+    IFS= read -r -d '' cwd < "$tmp"
+    [ -n "$cwd" ] && [ "$cwd" != "$PWD" ] && builtin cd -- "$cwd"
+    rm -f -- "$tmp"
+}
+
+
+# --- chearsheet yazi ---
+cheat() {
+    local f="$HOME/dotfiles/cheatsheets/$1.md"
+    [ -f "$f" ] || { ls "$HOME/dotfiles/cheatsheets"; return 1; }
+    if command -v batcat >/dev/null 2>&1; then batcat "$f"
+    elif command -v bat >/dev/null 2>&1; then bat "$f"
+    else less "$f"; fi
+}
