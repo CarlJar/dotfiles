@@ -55,3 +55,17 @@ shell/.config/shell/
 `stow --no-folding` creates symlinks from `$HOME` into this repo, e.g.
 `~/.config/shell/aliases.sh → ~/dotfiles/shell/.config/shell/aliases.sh`.
 Edit either path — it's the same file. Then `git commit && git push`, and `git pull` on the other machines.
+
+## Cheatsheets
+
+Markdown files in `cheatsheets/`, opened read-only in nvim by the `cheat` function (`aliases.sh`):
+
+| Command | Does |
+|---|---|
+| `cheat` | pick a sheet with fzf, preview on the right |
+| `cheat docker` / `cheat dock` | open a sheet — a unique prefix is enough, `Tab` completes |
+| `cheat -g scrub` | search all sheets |
+| `cheat -e name` | edit a sheet, or create a new one |
+| `cheat -l` | list sheets |
+
+Sheets: `btrfs` · `docker` · `git` · `lazygit` · `nvim` · `search` (fzf, rg, fd, bat) · `tmux` · `vim` · `yazi`

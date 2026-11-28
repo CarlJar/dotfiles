@@ -35,4 +35,14 @@ _host=$(uname -n)
 # 4. private, untracked additions for this machine only (never committed)
 [ -f "$_shell_dir/local.sh" ] && . "$_shell_dir/local.sh"
 
+# fzf key bindings: Ctrl-R history, Ctrl-T files, Alt-C cd, **<Tab> completion
+# (fzf >= 0.48 prints its own setup script; older versions print nothing here)
+if command -v fzf >/dev/null 2>&1; then
+  if [ -n "$BASH_VERSION" ]; then
+    eval "$(fzf --bash 2>/dev/null)"
+  elif [ -n "$ZSH_VERSION" ]; then
+    eval "$(fzf --zsh 2>/dev/null)"
+  fi
+fi
+
 unset _shell_dir _id _host
